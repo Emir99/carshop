@@ -10,7 +10,7 @@ For Db it uses Postgres.
 
 - JDK 1.8+
 
-- MySql
+- PostgreSql
 
 
 # Dependencies
@@ -49,7 +49,7 @@ spring.jpa.hibernate.ddl-auto = update
 
 `http://localhost:8080/carshop/{id}` (GET) to get a shop by id.
 
-`http://localhost:8080/carshop (POST)` to create a new shop.
+`http://localhost:8080/carshop` (POST) to create a new shop.
 
 `http://localhost:8080/carshop/{id}` (DELETE) to delete an existing shop.
 
@@ -59,7 +59,7 @@ spring.jpa.hibernate.ddl-auto = update
 
 `http://localhost:8080/car/{id}` (GET) to get a car by id.
 
-`http://localhost:8080/car/{carshop_id} (POST)` to create a new car and by giving the id you join it to the shop you want.
+`http://localhost:8080/car/{carshop_id}` (POST) to create a new car and by giving the id you join it to the shop you want.
 
 `http://localhost:8080/car/{id}` (DELETE) to delete an existing car.
 
