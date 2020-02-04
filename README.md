@@ -1,6 +1,7 @@
-# SpringBoot-Hotel-REST-API
-This is a REST API build with Spring Boot. For Db it uses Postgres. 
+# Car-CarShop REST-Api
+This is a REST API build with Spring Boot.
 Its about making different car markets that sell different kind of cars.
+For Db it uses Postgres. 
 
 # Tools
 - For running it is required you to have:
