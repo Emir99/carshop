@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CarshopController {
@@ -53,15 +54,15 @@ public class CarshopController {
     }
 
     @DeleteMapping("carshop/{id}")
-    public HttpStatus deleteCarShopById(@PathVariable("id") Long id) throws RecordNotFoundException {
+    public String deleteCarShopById(@PathVariable("id") Long id) throws RecordNotFoundException {
         service.deleteCarShopById(id);
-        return HttpStatus.FORBIDDEN;
+        return "Shop has been deleted successfully!";
     }
 
     @DeleteMapping("car/{id}")
-    public HttpStatus deleteCarById(@PathVariable("id") Long id) throws RecordNotFoundException {
+    public String deleteCarById(@PathVariable("id") Long id) throws RecordNotFoundException {
         service.deleteCarById(id);
-        return HttpStatus.FORBIDDEN;
+        return "Car has been deleted successfully!";
     }
 
     @PostMapping("/carshop")
@@ -70,12 +71,8 @@ public class CarshopController {
     }
 
     @PostMapping("/car/{carShopId}")
-    public Car createCourse(@PathVariable(value = "carShopId") Long car_id,
-                            @Valid @RequestBody Car car) throws RecordNotFoundException {
-        return carShopRepository.findById(car_id).map(carShop -> {
-            car.setCarShop(carShop);
-            return repository.save(car);
-        }).orElseThrow(() -> new RecordNotFoundException("Shop not found"));
+    public Optional<Car> createCar(@PathVariable(value = "carShopId") Long car_id, @Valid @RequestBody Car car) throws RecordNotFoundException {
+        return service.createCar(car_id, car);
     }
 
 }

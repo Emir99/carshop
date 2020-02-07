@@ -89,4 +89,10 @@ public class CarShopService implements FakeCarShopService {
         return repository.save(carShop);
     }
 
+    public Optional<Car> createCar(Long id, Car car) {
+        return repository.findById(id).map(cars -> {
+            car.setCarShop(cars);
+            return carRepository.save(car);
+        });
+    }
 }

@@ -4,6 +4,7 @@ import com.example.project.project.pojo.Car;
 import com.example.project.project.pojo.CarShop;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FakeCarShopService {
     List<CarShop> getAllCarShops();
@@ -13,4 +14,5 @@ public interface FakeCarShopService {
     void deleteCarShopById(Long id) throws RecordNotFoundException;
     void deleteCarById(Long id) throws RecordNotFoundException;
     CarShop createCarShop(CarShop carShop);
+    Optional<Car> createCar(Long id, Car car) throws RecordNotFoundException;
 }
